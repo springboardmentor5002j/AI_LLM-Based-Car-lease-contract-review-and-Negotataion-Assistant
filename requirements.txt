@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+PyPDF2
+requests
+pandas
+python-multipart
+anthropic
