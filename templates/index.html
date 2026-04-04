@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 AutoFinance AI Assistant - Car Lease/Loan Negotiation Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🚗 AutoFinance AI Assistant</h1>
+        <p class="subtitle">Smart Contract Review & Negotiation Platform</p>
+    </div>
+    
+    <!-- NAVIGATION TABS -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('upload')">📤 Upload Contract</button>
+        <button class="tab-btn" onclick="switchTab('vin')">🔍 VIN Lookup</button>
+        <button class="tab-btn" onclick="switchTab('negotiation')">💬 Negotiation Tips</button>
+    </div>
+    
+    <!-- TAB 1: CONTRACT UPLOAD -->
+    <div id="upload-tab" class="tab-content active">
+        <div class="card">
+            <h2>📄 Upload Lease/Loan Contract</h2>
+            <div class="upload-box">
+                <input type="file" id="fileInput" accept=".pdf" onchange="handleFileSelect()">
+                <button class="btn-primary" onclick="uploadFile()">🔄 Analyze Contract</button>
+            </div>
+            <div id="uploadStatus" class="status">Waiting for file...</div>
+        </div>
+        
+        <!-- FAIRNESS SCORE -->
+        <div id="fairnessCard" class="card" style="display: none;">
+            <h3>📊 Contract Fairness Score</h3>
+            <div class="score-container">
+                <div class="score-circle" id="scoreCircle">-</div>
+                <div class="score-details">
+                    <p><strong>Grade:</strong> <span id="scoreGrade">-</span></p>
+                    <p id="scoreBonuses"></p>
+                    <p id="scorePenalties"></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SLA EXTRACTION -->
+        <div id="slaCard" class="card" style="display: none;">
+            <h3>📋 Extracted Contract Summary</h3>
+            <table id="slaTable">
+                <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        
+        <!-- NEGOTIATION SUGGESTIONS -->
+        <div id="suggestionsCard" class="card" style="display: none;">
+            <h3>💡 AI-Powered Negotiation Suggestions</h3>
+            <ul id="negotiationList"></ul>
+        </div>
+    </div>
+    
+    <!-- TAB 2: VIN LOOKUP -->
+    <div id="vin-tab" class="tab-content">
+        <div class="card">
+            <h2>🔍 Vehicle VIN Lookup</h2>
+            <div class="vin-input-box">
+                <input type="text" id="vinInput" placeholder="Enter 17-character VIN" maxlength="17">
+                <button class="btn-primary" onclick="lookupVIN()">🔎 Lookup</button>
+            </div>
+            <div id="vinStatus" class="status">Enter VIN to get vehicle information...</div>
+        </div>
+        
+        <!-- VIN RESULTS -->
+        <div id="vinCard" class="card" style="display: none;">
+            <h3>🚘 Vehicle Information from VIN</h3>
+            <div id="vinInfo"></div>
+        </div>
+    </div>
+    
+    <!-- TAB 3: NEGOTIATION TIPS -->
+    <div id="negotiation-tab" class="tab-content">
+        <div class="card">
+            <h2>💬 Negotiation Tips & Strategies</h2>
+            <button class="btn-primary" onclick="getNegotiationTips()">💡 Get Tips</button>
+        </div>
+        
+        <!-- TIPS LIST -->
+        <div id="tipsCard" class="card" style="display: none;">
+            <h3>📝 Recommended Negotiation Strategies</h3>
+            <ul id="tipsList"></ul>
+        </div>
+    </div>
+    
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
