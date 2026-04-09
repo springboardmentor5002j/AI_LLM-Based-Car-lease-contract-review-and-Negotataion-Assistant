@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+}
+
+/* Upload Page */
+
+.upload-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-container {
+  text-align: center;
+}
+
+.upload-title {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.upload-subtitle {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* Upload Box */
+
+.upload-box {
+  width: 420px;
+  height: 200px;
+  border: 2px dashed #bbb;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: white;
+  transition: 0.2s;
+}
+
+.upload-box:hover {
+  border-color: black;
+}
+
+.upload-text {
+  color: #666;
+}
+
+/* Dashboard */
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 230px;
+  background: #1e293b;
+  color: white;
+  padding: 25px;
+}
+
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
